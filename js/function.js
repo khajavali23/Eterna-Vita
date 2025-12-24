@@ -538,13 +538,23 @@ $(document).ready(function () {
 });
 
 
-
 window.addEventListener("load", () => {
   const wa = document.querySelector(".whatsapp-float");
+  wa.style.opacity = "0";
+
   setTimeout(() => {
-    wa.style.transform = "scale(1.15)";
-    setTimeout(() => {
-      wa.style.transform = "scale(1)";
-    }, 300);
-  }, 1500);
+    wa.style.opacity = "1";
+    wa.style.transform = "scale(1)";
+  }, 1900); // after overlay removed
+});
+
+
+
+window.addEventListener("load", () => {
+  document.body.classList.add("page-ready");
+
+  const split = document.querySelector(".soft-split.smooth");
+  requestAnimationFrame(() => split.classList.add("open"));
+
+  setTimeout(() => split.remove(), 1900);
 });
