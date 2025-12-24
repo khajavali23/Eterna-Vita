@@ -2173,8 +2173,6 @@ header.main-header .container-fluid {
     transition: all 0.4s ease-in-out;
 }
 
-
-
 .team-social-list ul li a i {
     font-size: 18px;
     color: inherit;
@@ -6915,7 +6913,33 @@ body.page-ready {
 }
 
 .whatsapp-float {
-  transition: opacity .4s ease, transform .4s ease;
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
 }
 
+/* Active / current page */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:focus {
+    color: var(--accent-color);
+}
+
+/* ACTIVE — no underline, only color change */
+.navbar-nav .nav-link.active {
+    color: #c9b28a;
+
+    font-weight: 600; /* optional */
+}
+
+/* Highlight parent Services on hover of dropdown */
+.nav-item.submenu:hover > .nav-link {
+    color: #c9b28a;
+    font-weight: 600; /* optional */
+}
+
+
+.footer-links a.active {
+  color: #c9b28a;
+  font-weight: 600; /* optional */
+}
 

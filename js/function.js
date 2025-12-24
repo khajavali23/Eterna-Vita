@@ -375,19 +375,6 @@
     /* Feature Item Active End */
 })(jQuery);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(document).ready(function () {
     const $slider = $(".multiple-items");
     const $dots = $(".js-service-dots .service-dot");
@@ -537,24 +524,45 @@ $(document).ready(function () {
     });
 });
 
-
 window.addEventListener("load", () => {
-  const wa = document.querySelector(".whatsapp-float");
-  wa.style.opacity = "0";
+    const wa = document.querySelector(".whatsapp-float");
+    wa.style.opacity = "0";
 
-  setTimeout(() => {
-    wa.style.opacity = "1";
-    wa.style.transform = "scale(1)";
-  }, 1900); // after overlay removed
+    setTimeout(() => {
+        wa.style.opacity = "1";
+        wa.style.transform = "scale(1)";
+    }, 1900); // after overlay removed
 });
 
-
-
 window.addEventListener("load", () => {
-  document.body.classList.add("page-ready");
+    document.body.classList.add("page-ready");
 
-  const split = document.querySelector(".soft-split.smooth");
-  requestAnimationFrame(() => split.classList.add("open"));
+    const split = document.querySelector(".soft-split.smooth");
+    requestAnimationFrame(() => split.classList.add("open"));
 
-  setTimeout(() => split.remove(), 1900);
+    setTimeout(() => split.remove(), 1900);
 });
+
+const links = document.querySelectorAll(".nav-link");
+const current = location.pathname.split("/").pop();
+
+links.forEach((link) => {
+    if (link.getAttribute("href") === current) {
+        link.classList.add("active");
+    }
+});
+
+const page = location.pathname.split("/").pop();
+if (page === "services.html") {
+    document.querySelector(".nav-item.submenu > .nav-link")?.classList.add("active");
+}
+
+
+  const currentPage = location.pathname.split("/").pop();
+
+  document.querySelectorAll('a[href]')
+    .forEach(a => {
+      if (a.getAttribute("href") === currentPage) {
+        a.classList.add("active");
+      }
+    });
