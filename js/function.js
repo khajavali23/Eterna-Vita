@@ -524,29 +524,24 @@ $(document).ready(function () {
     });
 });
 
+
+// WhatsApp button visible instantly
 window.addEventListener("load", () => {
     const wa = document.querySelector(".whatsapp-float");
-    wa.style.opacity = "0";
-
-    setTimeout(() => {
+    if (wa) {
         wa.style.opacity = "1";
         wa.style.transform = "scale(1)";
-    }, 1900); // after overlay removed
+    }
 });
 
-window.addEventListener("load", () => {
-    document.body.classList.add("page-ready");
 
-    const split = document.querySelector(".soft-split.smooth");
-    requestAnimationFrame(() => split.classList.add("open"));
 
-    setTimeout(() => split.remove(), 1900);
-});
 
+// -------- NAV ACTIVE LINKS --------
 const links = document.querySelectorAll(".nav-link");
 const current = location.pathname.split("/").pop();
 
-links.forEach((link) => {
+links.forEach(link => {
     if (link.getAttribute("href") === current) {
         link.classList.add("active");
     }
@@ -554,15 +549,122 @@ links.forEach((link) => {
 
 const page = location.pathname.split("/").pop();
 if (page === "services.html") {
-    document.querySelector(".nav-item.submenu > .nav-link")?.classList.add("active");
+    document.querySelector(".nav-item.submenu > .nav-link")
+        ?.classList.add("active");
 }
 
 
-  const currentPage = location.pathname.split("/").pop();
+// -------- TEAM PAGINATION --------
+const itemsPerPage = 8;
+const items = document.querySelectorAll(".team-item");
+const pages = document.querySelectorAll(".pagination li a");
 
-  document.querySelectorAll('a[href]')
-    .forEach(a => {
-      if (a.getAttribute("href") === currentPage) {
-        a.classList.add("active");
-      }
+function showPage(page) {
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    items.forEach((item, index) => {
+        item.style.display = (index >= start && index < end) ? "block" : "none";
     });
+
+    document.querySelector(".pagination .active")?.classList.remove("active");
+    pages[page]?.parentElement.classList.add("active");
+}
+
+pages.forEach(btn => {
+    btn.addEventListener("click", e => {
+        e.preventDefault();
+        if (!isNaN(btn.textContent)) showPage(Number(btn.textContent));
+    });
+});
+
+showPage(1);
+
+
+// -------- SERVICES PAGINATION --------
+const servicesPerPage = 8;
+const serviceItems = document.querySelectorAll(".service-item");
+const servicePageLinks = document.querySelectorAll(".page-services .pagination li a");
+
+let serviceCurrentPage = 1;
+const serviceTotalPages = Math.ceil(serviceItems.length / servicesPerPage);
+
+function showServicePage(page) {
+    serviceCurrentPage = page;
+
+    const start = (page - 1) * servicesPerPage;
+    const end = start + servicesPerPage;
+
+    serviceItems.forEach((item, index) => {
+        item.style.display = (index >= start && index < end) ? "block" : "none";
+    });
+
+    document.querySelector(".page-services .pagination .active")
+        ?.classList.remove("active");
+
+    servicePageLinks.forEach(link => {
+        if (link.textContent == page) link.parentElement.classList.add("active");
+    });
+}
+
+servicePageLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+
+        if (link.querySelector(".fa-angle-left") && serviceCurrentPage > 1)
+            showServicePage(serviceCurrentPage - 1);
+
+        else if (link.querySelector(".fa-angle-right") && serviceCurrentPage < serviceTotalPages)
+            showServicePage(serviceCurrentPage + 1);
+
+        else if (!isNaN(link.textContent.trim()))
+            showServicePage(Number(link.textContent.trim()));
+    });
+});
+
+showServicePage(1);
+
+
+// -------- BLOG PAGINATION --------
+const blogsPerPage = 6;
+const blogItems = document.querySelectorAll(".page-blog .post-item");
+const blogPageLinks = document.querySelectorAll(".page-blog .pagination li a");
+
+let blogCurrentPage = 1;
+const blogTotalPages = Math.ceil(blogItems.length / blogsPerPage);
+
+function showBlogPage(page) {
+    blogCurrentPage = page;
+
+    const start = (page - 1) * blogsPerPage;
+    const end = start + blogsPerPage;
+
+    blogItems.forEach((item, index) => {
+        item.style.display = (index >= start && index < end) ? "block" : "none";
+    });
+
+    document.querySelector(".page-blog .pagination .active")
+        ?.classList.remove("active");
+
+    blogPageLinks.forEach(link => {
+        if (link.textContent == page)
+            link.parentElement.classList.add("active");
+    });
+}
+
+blogPageLinks.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+
+        if (link.querySelector(".fa-angle-left") && blogCurrentPage > 1)
+            showBlogPage(blogCurrentPage - 1);
+
+        else if (link.querySelector(".fa-angle-right") && blogCurrentPage < blogTotalPages)
+            showBlogPage(blogCurrentPage + 1);
+
+        else if (!isNaN(link.textContent.trim()))
+            showBlogPage(Number(link.textContent.trim()));
+    });
+});
+
+showBlogPage(1);

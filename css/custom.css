@@ -75,11 +75,9 @@ body {
     line-height: 1em;
     color: var(--text-color);
     background: var(--bg-color);
-    opacity: 0;
-    transform: translateY(10px);
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+    
+   
+     
 }
 
 ::-webkit-scrollbar-track {
@@ -6866,51 +6864,6 @@ header.main-header .container-fluid {
     border-radius: 20px;
 }
 
-.soft-split.smooth {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-/* Panels */
-.panel {
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    background: #0e0e12; /* change to your brand color */
-    backdrop-filter: blur(6px);
-    transition: transform 1.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* Soft rounded center */
-.panel.left {
-    left: 0;
-    border-top-right-radius: 48px;
-    border-bottom-right-radius: 48px;
-}
-
-.panel.right {
-    right: 0;
-    border-top-left-radius: 48px;
-    border-bottom-left-radius: 48px;
-}
-
-/* Page fade-in */
-
-body.page-ready {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Slow, smooth opening */
-.soft-split.smooth.open .left {
-    transform: translateX(-100%);
-}
-.soft-split.smooth.open .right {
-    transform: translateX(100%);
-}
 
 .whatsapp-float {
     transition:
