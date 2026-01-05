@@ -354,7 +354,7 @@ body {
     right: 0;
     bottom: 0;
     z-index: 1000;
-    background: var(--accent-secondary-color);
+    background: #a18e63;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6971,12 +6971,12 @@ header.main-header .container-fluid {
 /************************************/
 
 :root {
-    --primary-color: #0F4D3D;
+    --primary-color: #0f4d3d;
     --secondary-color: #f7f3ed;
     --accent-secondary-color: #636a55;
     --bg-color: #efe7da;
-    --text-color: #A18E63;
-    --accent-color: #7CA15B;
+    --text-color: #a18e63;
+    --accent-color: #7ca15b;
     --white-color: #ffffff;
     --divider-color: #5a50441a;
     --dark-divider-color: #f7f3ed1a;
@@ -7325,7 +7325,7 @@ body {
 }
 
 .bg-section.dark-section {
-    background-color: #2E5B4B;
+    background-color: #2e5b4b;
 }
 
 .bg-section {
@@ -7764,8 +7764,7 @@ header.main-header .container-fluid {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(58deg, rgba(0, 0, 0, 0.3) 0.06%, #a18a8a1c 114.98%),
-        linear-gradient(163deg, rgba(0, 0, 0, 0.3) 70.64%, #00000000 99.95%);
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), rgba(15 77 61 / 81%);
     opacity: 80%;
     width: 100%;
     height: 100%;
@@ -9554,7 +9553,7 @@ header.main-header .container-fluid {
 
 .footer-logo img {
     width: 100%;
-    max-width: 176px;
+    max-width: 240px;
 }
 
 .about-footer-content {
@@ -9675,7 +9674,7 @@ header.main-header .container-fluid {
 }
 
 .footer-newsletter-form .form-group .btn-default {
-    width: 20%;
+    width: 25%;
     border-radius: 0 10px 10px 0;
     padding: 17px 12px;
     line-height: 1em;
@@ -11909,6 +11908,7 @@ header.main-header .container-fluid {
     .btn-default {
         padding: 14px 40px 14px 18px;
     }
+    
 
     .btn-default::before {
         width: 12px;
@@ -13000,6 +13000,9 @@ header.main-header .container-fluid {
     .section-title h1 {
         font-size: 30px;
     }
+    .mobile_style{
+        width: 200px;
+    }
 
     .section-title h2 {
         font-size: 26px;
@@ -13360,7 +13363,7 @@ header.main-header .container-fluid {
     }
 
     .footer-social-links {
-        gap: 10px;
+        gap: 20px;
     }
 
     .footer-social-links h3 {
@@ -13697,7 +13700,7 @@ header.main-header .container-fluid {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
+  background: rgb(124 161 91);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -13867,4 +13870,70 @@ header.main-header .container-fluid {
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
     opacity: 0;
     transform: translateY(10px);
+}
+
+.backgroun_img {
+  position: relative;
+  background-image: url("../images/background_img.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 1880px;
+  border-radius: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Black overlay — only on background */
+.backgroun_img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+    background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),      /* black layer */
+      rgba(0, 0, 0, 0.45)
+    ),
+    rgba(15 77 61 / 81%);
+  border-radius: 20px;
+  z-index: 0;        /* stays behind content */
+}
+
+/* Bring inner content & images above the overlay */
+.backgroun_img > * {
+  position: relative;
+  z-index: 1;
+}
+.Foort_backgroun_img {
+  position: relative;
+  background-image: url("../images/footer_background_img.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 1880px;
+  border-radius: 20px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* black + color overlay together */
+.Foort_backgroun_img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  z-index: 0;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),      /* black layer */
+      rgba(0, 0, 0, 0.45)
+    ),
+    rgba(15 77 61 / 81%);        /* your color layer */
+}
+
+.Foort_backgroun_img > * {
+  position: relative;
+  z-index: 1;  /* keeps content clear */
 }
