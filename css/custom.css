@@ -51,8 +51,8 @@
 :root {
     --primary-color: #5a5044;
     --secondary-color: #f7f3ed;
-    --accent-secondary-color: #636a55;
-    --bg-color: #efe7da;
+    --accent-secondary-color: #0F4D3D;
+    --bg-color: #a18e634a;
     --text-color: #868686;
     --accent-color: #243c2b;
     --white-color: #ffffff;
@@ -2297,7 +2297,7 @@ header.main-header .container-fluid {
 }
 
 .join-live-chat .icon-box {
-    border: 1px solid var(--primary-color);
+    border: 1px solid #7CA15B;
     border-radius: 50%;
     width: 55px;
     height: 55px;
@@ -6978,7 +6978,7 @@ header.main-header .container-fluid {
     --text-color: #a18e63;
     --accent-color: #7ca15b;
     --white-color: #ffffff;
-    --divider-color: #5a50441a;
+    --divider-color: #a18e63;
     --dark-divider-color: #f7f3ed1a;
     --error-color: rgb(230, 87, 87);
     --default-font: "Plus Jakarta Sans", sans-serif;
@@ -7276,7 +7276,7 @@ body {
     right: 0;
     bottom: 0;
     z-index: 1000;
-    background: var(--accent-secondary-color);
+    background: #7ca15b;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7297,7 +7297,7 @@ body {
 .loading {
     border: 1px solid transparent;
     border-color: transparent var(--secondary-color) transparent var(--secondary-color);
-    animation: rotate-loading 1.5s linear 0s infinite normal;
+    animation: rotate-loading 1.8s linear 0s infinite normal;
     transform-origin: 50% 50%;
 }
 
@@ -7310,7 +7310,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    max-width: 66px;
+    max-width: 100px;
     transform: translate(-50%, -50%);
 }
 
@@ -7389,7 +7389,7 @@ body {
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    background: var(--accent-secondary-color);
+    background: #0F4D3D;
     border-radius: 50%;
     width: 6px;
     height: 6px;
@@ -8544,10 +8544,11 @@ header.main-header .container-fluid {
 .pricing-content h2 span {
     font-size: 16px;
     font-weight: 600;
-    background: var(--divider-color);
+    background: #7ca15b;
     border-radius: 10px;
     padding: 14px 30px;
     line-height: normal;
+    color: white;
 }
 
 .pricing-content p {
@@ -8614,7 +8615,8 @@ header.main-header .container-fluid {
 }
 
 .pricing-box.highlighted-box .pricing-content h2 span {
-    background: var(--dark-divider-color);
+       background: #f7f3ed;
+    color: #0f4d3d;
 }
 
 .pricing-box.highlighted-box .pricing-header h3,
@@ -9219,7 +9221,7 @@ header.main-header .container-fluid {
 }
 
 .join-live-chat .icon-box {
-    border: 1px solid var(--primary-color);
+     border: 1px solid #7CA15B;
     border-radius: 50%;
     width: 55px;
     height: 55px;
@@ -10064,7 +10066,7 @@ header.main-header .container-fluid {
     top: 0;
     bottom: 0;
     right: -40px;
-    background: var(--divider-color);
+    background: #2e5b4b36;
     width: 1px;
     height: 100%;
 }
@@ -13831,7 +13833,7 @@ header.main-header .container-fluid {
 
 /* ACTIVE — no underline, only color change */
 .navbar-nav .nav-link.active {
-    color: #c9b28a;
+       color: #efefee;
 
     font-weight: 600; /* optional */
 }
@@ -13936,4 +13938,22 @@ header.main-header .container-fluid {
 .Foort_backgroun_img > * {
   position: relative;
   z-index: 1;  /* keeps content clear */
+}
+
+.our_ecosystem_img{
+    border-radius: 20px;
+}
+.testimonials__sub_heading{
+    color: white;
+    font-size: 24px;
+}
+
+.service_internalpage_icon{
+    max-width: 40px !important;
+
+}
+.nav-link.active,
+.nav-item.active > .nav-link {
+    color: #A18E63;
+    font-weight: 700;
 }
